@@ -1,0 +1,24 @@
+{
+	"file_input_link": ".\\link.txt",
+
+	"audio_quality": "192k",
+
+	"download_video": "T",
+
+	"remove_str_file": "T",
+
+	"reset_file_input": "T",
+
+	"convert_video": "",
+	"convert_existing_video": "T",
+	"delete_converted_video": "T",
+
+	"dir_video": ".\\video",
+	"dir_audio": ".\\audio",
+
+	
+	"e_dir_video": ".\\e_video",
+	"e_dir_audio": ".\\e_audio",
+	"before": " ",
+	"after": "y_-s_-z"
+}
