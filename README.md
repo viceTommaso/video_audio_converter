@@ -64,7 +64,7 @@ Per verificare l'installazione eseguire da linea comando:
 
 ## Requirements
 
-python3, ffmpeg, youtube-dl
+windows, python3, ffmpeg, youtube-dl
 
 ## Library
 
