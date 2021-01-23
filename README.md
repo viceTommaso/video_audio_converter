@@ -2,12 +2,12 @@
 
 ## Program
 
-Il programma utilizza le librerie `youtube-dl` e `FFmpeg` che possono essere usate separatamente oppure insieme.
+Il programma utilizza le librerie [`youtube-dl`](https://github.com/ytdl-org/youtube-dl) e [`FFmpeg`](https://github.com/FFmpeg) che possono essere usate separatamente oppure insieme.
 
-* youtube-dl permette di scaricare i video dai siti presenti nella lista in mp4: https://ytdl-org.github.io/youtube-dl/supportedsites.html
+* youtube-dl permette di scaricare i video dai siti presenti nella lista in mp4: [Supported Sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html) 
 * FFmpeg permette di convertire i video in formato mp3
 
-A seconda di quello che si vuole fare bisogna modificare il file `settings.json`
+A seconda di quello che si vuole fare bisogna modificare il file [`settings.json`](.\bin\settings.json)
 
 Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene sostituito
 
@@ -52,11 +52,15 @@ Il file delle impostazioni funziona mettendo tra le virgolette una "T", le virgo
 
 ## Installation
 Per l'installazione si procede con il comando da terminale per youtube-dl: `pip install youtube-dl`.
-Successivamente per la libreria FFmpeg, bisogna (come amministratori) andare su `Pannello di controllo>Sistema e sicurezza>Sistema` > `Impostazioni di sistema avanzate` > `Variabili d'ambiente`, premere su `Path` e fare `Modifica...`. Ora fate `Nuovo` ed incollate la path della cartella ffmpeg fino alla cartella bin (la cartella può essere messa dove si vuole, l'importante è che se si vuole spostare la cartella si modifiche anche la variabile d'ambiente)
+Successivamente per la libreria FFmpeg, dopo aver scaricato la libreria da questo [link](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z), oppure eseguendo il file [ffmpeg_dl.bat](\ffmpeg_dl.bat), estraetela e rinominatela ffmpeg. Ora bisogna (come amministratori) andare su `Pannello di controllo>Sistema e sicurezza>Sistema` > `Impostazioni di sistema avanzate` > `Variabili d'ambiente`, premere su `Path` e fare `Modifica...`. Ora fate `Nuovo` ed incollate la path della cartella ffmpeg fino alla cartella bin (la cartella può essere messa dove si vuole, l'importante è che se si vuole spostare la cartella si modifichi anche la variabile d'ambiente)
 
 Il risulatato dovrà essere simile a questo:
 
 	C:\*\ffmpeg\bin
+
+Per verificare l'installazione eseguire da linea comando:
+
+	ffmpeg -version
 
 ## Requirements
 
