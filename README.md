@@ -22,39 +22,39 @@ Nei percorsi dei file si raccomanda il doppio "\" in modo da non dare problemi n
 	{
 		"file_input_link": ".\\link.txt",		#la path del file con la lista dei link
 
-		"audio_quality": "192k",				#la qualità audio del video scaricato
+		"audio_quality": "192k",			#la qualità audio del video scaricato
 
-		"download_video": "T",					#attiva la libreria "youtube-dl" e scarica i video presenti nel file di input
-												(può rimanere attiva senza problemi se il file dei link è vuoto)
+		"download_video": "T",				#attiva la libreria "youtube-dl" e scarica i video presenti nel file di input
+								(può rimanere attiva senza problemi se il file dei link è vuoto)
 
-		"remove_str_file": "T",					#se disattivato il nome dei file avrà alla fine del nome parte del link
-												(funziona indipendentemente dalla variabile precedente)
-												(consigliabile tenerla sempre attiva in assenza di relativi bug)
+		"remove_str_file": "T",				#se disattivato il nome dei file avrà alla fine del nome parte del link
+								(funziona indipendentemente dalla variabile precedente)
+								(consigliabile tenerla sempre attiva in assenza di relativi bug)
 
-		"reset_file_input": "",					#resetta il file contenente i link a fine esecuzione
-												(funziona indipendentemente dalle variabili precedenti)
+		"reset_file_input": "",				#resetta il file contenente i link a fine esecuzione
+								(funziona indipendentemente dalle variabili precedenti)
 
-		"convert_video": "",					#attiva la libreria "ffmpeg" convertendo i file appena scaricati
+		"convert_video": "",				#attiva la libreria "ffmpeg" convertendo i file appena scaricati
 		"convert_existing_video": "",			#converte (anche) i video presenti nella cartella destinata ai video
-												(funziona dipendentemente dalla variabile precedente)
-												(può essere usata per convertire un file video in mp3)
+								(funziona dipendentemente dalla variabile precedente)
+								(può essere usata per convertire un file video in mp3)
 		"delete_converted_video": "",			#elimina i video convertiti
-												(funziona dipendentemente dalla variabile "convert_video")
+								(funziona dipendentemente dalla variabile "convert_video")
 
-		"dir_video": ".\\video",				#cartella predefinita per il download e processo di conversione dei video
-												(conversione dei video esistenti prima dell'esecuzione del programma)
-		"dir_audio": ".\\audio",				#cartella predefinita per la destinazione dei video convertiti
+		"dir_video": ".\\video",			#cartella predefinita per il download e processo di conversione dei video
+								(conversione dei video esistenti prima dell'esecuzione del programma)
+		"dir_audio": ".\\audio",			#cartella predefinita per la destinazione dei video convertiti
 
 		
 		"e_dir_video": ".\\e_video",			#cartella temporanea per il download dei video
-												(questa cartella sarà nascosta se generata automaticamente)
+								(questa cartella sarà nascosta se generata automaticamente)
 		"e_dir_audio": ".\\e_audio",			#cartella temporanea per la conversione degli audio
-												(questa cartella sarà nascosta se generata automaticamente)
+								(questa cartella sarà nascosta se generata automaticamente)
 
-												(le cartelle temporanee sono state create per evitare bug ad un eventuale secondo avvio del programma)
+								(le cartelle temporanee sono state create per evitare bug ad un eventuale secondo avvio del programma)
 
-		"before": " ",							#sostituzione nel nome temporanea
-		"after": "y_-s_-z"						#rinominazione temporanea (modificare se si presenta questa dicitura nel nome del video)
+		"before": " ",					#sostituzione nel nome temporanea
+		"after": "y_-s_-z"				#rinominazione temporanea (modificare se si presenta questa dicitura nel nome del video)
 	}
 
 ## Installation

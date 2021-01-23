@@ -142,6 +142,7 @@ def init():
         os.mkdir(settings["e_dir_audio"])
         os.system(f"""attrib +h {(settings["e_dir_audio"])}""")
         print("HIDE AUDIO DIRECTORY doesn't exist, just created")
+    return 0
 
 
 def main():
