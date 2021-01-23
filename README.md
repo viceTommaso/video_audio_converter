@@ -11,6 +11,8 @@ A seconda di quello che si vuole fare bisogna modificare il file [`settings.json
 
 Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene sostituito
 
+***SI CONSIGLIA DI ESEGUIRE IL PROGRAMMA A VUOTO PRIMA DELL'USO***
+
 ## Prerequisites
 
 windows, python3
@@ -69,7 +71,6 @@ Per verificare l'installazione eseguire da linea comando:
 
 	ffmpeg -version
 
-***SI CONSIGLIA DI ESEGUIRE IL PROGRAMMA A VUOTO PRIMA DELL'USO***
 
 ## Library
 
