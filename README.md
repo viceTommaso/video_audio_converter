@@ -19,7 +19,7 @@ windows, python3
 
 ## settings.json
 Il file delle impostazioni funziona mettendo tra le virgolette una "T", le virgolette devono rimanere anche nel caso non si voglia attiva la determinata variabile, si può quindi lasciare vuota o mettere quealsiasi altro carattere es: "F"
-Nei percorsi dei file si raccomanda il doppio "\" in modo da non dare problemi nell'esecuzione
+Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare problemi nell'esecuzione
 
 	{
 		"file_input_link": ".\\link.txt",		#la path del file con la lista dei link
