@@ -115,6 +115,35 @@ def res():
     return 0
 
 
+def init():
+    """
+    check if there are any files needed to boot
+    :return: 0
+    """
+    if str(os.path.exists(settings["file_input_link"])) == "False":
+        with open(settings["file_input_link"], "a", encoding="utf-8") as f_link:
+            pass
+        print("INPUT FILE doesn't exist, just created")
+
+    if str(os.path.exists(settings["dir_video"])) == "False":
+        os.mkdir(settings["dir_video"])
+        print("VIDEO DIRECTORY doesn't exist, just created")
+    
+    if str(os.path.exists(settings["dir_audio"])) == "False":
+        os.mkdir(settings["dir_audio"])
+        print("AUDIO DIRECTORY doesn't exist, just created")
+
+    if str(os.path.exists(settings["e_dir_video"])) == "False":
+        os.mkdir(settings["e_dir_video"])
+        os.system(f"""attrib +h {(settings["e_dir_video"])}""")
+        print("HIDE VIDEO DIRECTORY doesn't exist, just created")
+    
+    if str(os.path.exists(settings["e_dir_audio"])) == "False":
+        os.mkdir(settings["e_dir_audio"])
+        os.system(f"""attrib +h {(settings["e_dir_audio"])}""")
+        print("HIDE AUDIO DIRECTORY doesn't exist, just created")
+
+
 def main():
     """
     main
@@ -123,11 +152,7 @@ def main():
     if boold:
         print("start")
 
-    if str(os.path.exists(settings["file_input_link"])) == "False":
-        with open(settings["file_input_link"], "a", encoding="utf-8") as f_link:
-            pass
-        print("file doesn't exist, just created")
-
+    init()
     res()
     video()
     if settings["reset_file_input"] == "T":

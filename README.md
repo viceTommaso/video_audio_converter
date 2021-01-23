@@ -11,8 +11,13 @@ A seconda di quello che si vuole fare bisogna modificare il file [`settings.json
 
 Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene sostituito
 
+## Prerequisites
+
+windows, python3
+
 ## settings.json
 Il file delle impostazioni funziona mettendo tra le virgolette una "T", le virgolette devono rimanere anche nel caso non si voglia attiva la determinata variabile, si può quindi lasciare vuota o mettere quealsiasi altro carattere es: "F"
+Nei percorsi dei file si raccomanda il doppio "\" in modo da non dare problemi nell'esecuzione
 
 	{
 		"file_input_link": ".\\link.txt",		#la path del file con la lista dei link
@@ -42,7 +47,9 @@ Il file delle impostazioni funziona mettendo tra le virgolette una "T", le virgo
 
 		
 		"e_dir_video": ".\\e_video",			#cartella temporanea per il download dei video
+												(questa cartella sarà nascosta se generata automaticamente)
 		"e_dir_audio": ".\\e_audio",			#cartella temporanea per la conversione degli audio
+												(questa cartella sarà nascosta se generata automaticamente)
 
 												(le cartelle temporanee sono state create per evitare bug ad un eventuale secondo avvio del programma)
 
@@ -62,9 +69,7 @@ Per verificare l'installazione eseguire da linea comando:
 
 	ffmpeg -version
 
-## Requirements
-
-windows, python3, ffmpeg, youtube-dl
+***SI CONSIGLIA DI ESEGUIRE IL PROGRAMMA A VUOTO PRIMA DELL'USO***
 
 ## Library
 
