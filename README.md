@@ -9,7 +9,9 @@ Il programma utilizza le librerie [`youtube-dl`](https://github.com/ytdl-org/you
 
 A seconda di quello che si vuole fare bisogna modificare il file [`settings.json`](.\bin\settings.json)
 
-Altrimenti si può eseguire il programma da prompt dei comandi come ultimo parametro il link del video (eseguendolo in questo modoil file con i link non verrà resettato anche se la variabile è attiva)
+Se si vuole scaricare uno o più video contemporaneamente, basta mettere i link nell'apposito file ([`link.txt`](.\bin\link.txt) o quello che scieglierete) inserendo i link uno sotto l'altro
+
+Altrimenti si può eseguire il programma da prompt dei comandi come ultimo parametro il link del video (eseguendolo in questo modo il file con i link non verrà resettato anche se la variabile è attiva)
 
 Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene ignorato
 
