@@ -13,7 +13,7 @@ Se si vuole scaricare uno o più video contemporaneamente, basta mettere i link 
 
 Altrimenti si può eseguire il programma da prompt dei comandi come ultimo parametro il link del video (eseguendolo in questo modo il file con i link non verrà resettato anche se la variabile è attiva)
 
-Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene ignorato
+Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene ignorato ma fate attenzione che potrebbe crushare (verrà al più presto fixata)
 
 ***SI CONSIGLIA DI ESEGUIRE IL PROGRAMMA A VUOTO PRIMA DELL'USO***
 

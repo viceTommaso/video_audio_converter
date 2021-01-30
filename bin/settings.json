@@ -10,7 +10,7 @@
 	"reset_file_input": "T",
 
 	"convert_video": "T",
-	"convert_existing_video": "",
+	"convert_existing_video": "T",
 	"delete_converted_video": "",
 
 	"dir_video": ".\\video",

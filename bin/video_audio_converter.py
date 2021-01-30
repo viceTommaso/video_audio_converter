@@ -12,10 +12,6 @@ import youtube_dl
 boold = False
 
 
-with open("settings.json", "r", encoding="utf-8") as file_json:
-    settings = json.loads(file_json.read())
-
-
 def ren(t_directory, t_before, t_after):
     """
     rename file whit specificated argoments
@@ -74,20 +70,29 @@ def video(p_0, p_2, p_3, p_10, i_type):
     return 0
 
 
-def convert():
+def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11, p_12, p_13):
     """
     conversions operations
+    :param p_1:audio_quality
+    :param p_5:convert_video
+    :param p_6:convert_existing_video
+    :param p_7:convert_existing_video
+    :param p_8:dir_video
+    :param p_10:e_dir_video
+    :param p_11:e_dir_audio
+    :param p_12:before
+    :param p_13:after
     :return: 0
     """
-    if settings["convert_existing_video"] == "T":
-        for root, dirs, files in os.walk(settings["dir_video"]):
+    if p_6 == "T":
+        for root, dirs, files in os.walk(p_8):
             for i in files:
-                shutil.move(os.path.join(root, i), settings["e_dir_video"])
+                shutil.move(os.path.join(root, i), p_10)
 
-    if settings["convert_video"] == "T":
-        ren(settings["e_dir_video"], settings["before"], settings["after"])
-        ren(settings["e_dir_video"], "&", "EspEc")
-        for root, dirs, files in os.walk(settings["e_dir_video"]):
+    if p_5 == "T":
+        ren(p_10, p_12, p_13)
+        ren(p_10, "&", "EspEc")                         #la & da errore nella conversione
+        for root, dirs, files in os.walk(p_10):
             for i in files:
                 v_i = i.split(".")
                 st = ""
@@ -97,63 +102,62 @@ def convert():
                     else:
                         st += s
                 os.system(
-                    f"""ffmpeg -i .\\{settings["e_dir_video"]}\\{i} -acodec libmp3lame -b:a {settings["audio_quality"]} -vn .\\{settings["e_dir_audio"]}\\{st}.mp3""")
+                    f"""ffmpeg -i .\\{p_10}\\{i} -acodec libmp3lame -b:a {p_1} -vn .\\{p_11}\\{st}.mp3""")
 
-                if settings["delete_converted_video"] == "T":
+                if p_7 == "T":
                     os.remove(os.path.join(root, i))
 
-        if settings["delete_converted_video"] != "T":
-            ren(settings["e_dir_video"], settings["after"], settings["before"])
-            ren(settings["e_dir_video"], "EspEc", "&")
-        ren(settings["e_dir_audio"], settings["after"], settings["before"])
-        ren(settings["e_dir_audio"], "EspEc", "&")
+        if p_7 != "T":
+            ren(p_10, p_13, p_12)
+            ren(p_10, "EspEc", "&")                     #ripristino &
+        ren(p_11, p_13, p_12)
+        ren(p_11, "EspEc", "&")
     return 0
 
 
-def res():
+def move_files(original_path, destination_path):
     """
     end operations
+    :param original_path:where are files
+    :param destination_path:where files goes
     :return: 0
     """
-    for root, dirs, files in os.walk(settings["e_dir_video"]):
+    for root, dirs, files in os.walk(original_path):
         for i in files:
-            shutil.copy(os.path.join(root, i), settings["dir_video"])
-            os.remove(os.path.join(root, i))
-
-    for root, dirs, files in os.walk(settings["e_dir_audio"]):
-        for i in files:
-            shutil.copy(os.path.join(root, i), settings["dir_audio"])
+            shutil.copy(os.path.join(root, i), destination_path)
             os.remove(os.path.join(root, i))
     return 0
 
 
-def init():
+def init_files(file_ck, file_name):
     """
     check if there are any files needed to boot
+    :param file_ck:file to check if exist
+    :param file_name:the name to print when crated
     :return: 0
     """
-    if str(os.path.exists(settings["file_input_link"])) == "False":
-        with open(settings["file_input_link"], "a", encoding="utf-8") as f_link:
+    if str(os.path.exists(file_ck)) == "False":
+        with open(file_ck, "a", encoding="utf-8") as f_link:
             pass
-        print("INPUT FILE doesn't exist, just created")
+        print(f"""{file_name} FILE doesn't exist, just created""")
+    return 0
 
-    if str(os.path.exists(settings["dir_video"])) == "False":
-        os.mkdir(settings["dir_video"])
-        print("VIDEO DIRECTORY doesn't exist, just created")
-    
-    if str(os.path.exists(settings["dir_audio"])) == "False":
-        os.mkdir(settings["dir_audio"])
-        print("AUDIO DIRECTORY doesn't exist, just created")
 
-    if str(os.path.exists(settings["e_dir_video"])) == "False":
-        os.mkdir(settings["e_dir_video"])
-        os.system(f"""attrib +h {(settings["e_dir_video"])}""")
-        print("HIDE VIDEO DIRECTORY doesn't exist, just created")
-    
-    if str(os.path.exists(settings["e_dir_audio"])) == "False":
-        os.mkdir(settings["e_dir_audio"])
-        os.system(f"""attrib +h {(settings["e_dir_audio"])}""")
-        print("HIDE AUDIO DIRECTORY doesn't exist, just created")
+def init_directory(dir_ck, dir_vsby, dir_name):
+    """
+    check if there are any dirs needed to boot
+    :param dir_ck:directory to check if exist
+    :param dir_vsby:if directory is visible or not (any str/h)
+    :param dir_name:the name to print when crated
+    :return: 0
+    """
+    if str(os.path.exists(dir_ck)) == "False":
+        os.mkdir(dir_ck)
+        msg = f"""{dir_name} DIRECTORY doesn't exist, just created"""
+        if dir_vsby == "h":
+            os.system(f"""attrib +h {dir_ck}""")
+            msg = msg + " and hidden"
+        print(msg)
     return 0
 
 
@@ -164,6 +168,9 @@ def main():
     """
     if boold:
         print("start")
+
+    with open("settings.json", "r", encoding="utf-8") as file_json:
+        settings = json.loads(file_json.read())
 
     parm = (settings["file_input_link"],
             settings["audio_quality"],
@@ -180,8 +187,16 @@ def main():
             settings["before"],
             settings["after"])
 
-    init()
-    res()
+    init_files(parm[0], "INPUT")
+    init_directory(parm[8],"", "VIDEO")
+    init_directory(parm[9],"", "AUDIO")
+    init_directory(parm[10],"h", "HIDE VIDEO")
+    init_directory(parm[11],"h", "HIDE AUDIO")
+
+
+    move_files(parm[10], parm[8])
+    move_files(parm[11], parm[9])
+
     if len(sys.argv) >= 2:
         video(sys.argv[-1], parm[2], parm[3], parm[10], "s")
     else:
@@ -189,12 +204,15 @@ def main():
         if parm[4] == "T":
             with open(parm[0], "w", encoding="utf-8") as f_link:
                 pass
-    convert()
-    res()
+
+    convert(parm[1], parm[5], parm[6], parm[7], parm[8], parm[10], parm[11], parm[12], parm[13])
+
+    move_files(parm[10], parm[8])
+    move_files(parm[11], parm[9])
 
     if boold:
         print("end")
-
+        
     return 0
 
 
