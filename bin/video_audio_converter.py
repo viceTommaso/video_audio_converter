@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import json
 import os
 import shutil
+import sys
 import youtube_dl
 
 
@@ -37,18 +38,29 @@ def ren(t_directory, t_before, t_after):
     return 0
 
 
-def video():
+def video(p_0, p_2, p_3, p_10, i_type):
     """
     downloading operations
+    :param p_0:input
+    :param p_2:download_video
+    :param p_3:remove_str_file
+    :param p_10:e_dir_video
+    :param i_type:type of input, string("s")/file("f")
     :return: 0
     """
-    if settings["download_video"] == "T":
-        with open(settings["file_input_link"], "r", encoding="utf-8") as f_link:
-            for i in f_link:
-                os.system(f"""cd {settings["e_dir_video"]} && youtube-dl -f best {i}""")
+    if p_2 == "T":
+        if i_type == "f":
+            with open(p_0, "r", encoding="utf-8") as f_link:
+                for i in f_link:
+                    os.system(f"""cd {p_10} && youtube-dl -f best {i}""")
+        elif i_type == "s":
+            os.system(f"""cd {p_10} && youtube-dl -f best {p_0}""")
+        else:
+            print("inserire un tipo di input valido (s/f)")
+            pass
 
-    if settings["remove_str_file"] == "T":
-        for root, dirs, files in os.walk(settings["e_dir_video"]):
+    if p_3 == "T":
+        for root, dirs, files in os.walk(p_10):
             for i in files:
                 if i != __file__:
                     v_file = i.split(".")
@@ -153,12 +165,30 @@ def main():
     if boold:
         print("start")
 
+    parm = (settings["file_input_link"],
+            settings["audio_quality"],
+            settings["download_video"],
+            settings["remove_str_file"],
+            settings["reset_file_input"],
+            settings["convert_video"],
+            settings["convert_existing_video"],
+            settings["delete_converted_video"],
+            settings["dir_video"],
+            settings["dir_audio"],
+            settings["e_dir_video"],
+            settings["e_dir_audio"],
+            settings["before"],
+            settings["after"])
+
     init()
     res()
-    video()
-    if settings["reset_file_input"] == "T":
-        with open(settings["file_input_link"], "w", encoding="utf-8") as f_link:
-            pass
+    if len(sys.argv) >= 2:
+        video(sys.argv[-1], parm[2], parm[3], parm[10], "s")
+    else:
+        video(parm[0], parm[2], parm[3], parm[10], "f")
+        if parm[4] == "T":
+            with open(parm[0], "w", encoding="utf-8") as f_link:
+                pass
     convert()
     res()
 
