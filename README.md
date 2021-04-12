@@ -21,6 +21,23 @@ Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene igno
 
 windows, python3
 
+## Library
+
+ffmpeg, youtube-dl
+
+## Installation
+Per l'installazione si procede con il comando da terminale per youtube-dl: `pip install youtube-dl` oppure eseguendo il file [setup.bat](\setup.bat).
+
+Successivamente per la libreria FFmpeg, dopo aver scaricato la libreria da questo [link](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z), oppure eseguendo il file [ffmpeg_dl.bat](\ffmpeg_dl.bat), estraetela e rinominatela ffmpeg. Ora bisogna (come amministratori) andare su `Pannello di controllo>Sistema e sicurezza>Sistema` > `Impostazioni di sistema avanzate` > `Variabili d'ambiente`, premere su `Path` e fare `Modifica...`. Ora fate `Nuovo` ed incollate la path della cartella ffmpeg fino alla cartella bin (la cartella può essere messa dove si vuole, l'importante è che se si vuole spostare la cartella si modifichi anche la variabile d'ambiente)
+
+Il risulatato dovrà essere simile a questo:
+
+	C:\*\ffmpeg\bin
+
+Per verificare l'installazione eseguire da linea comando:
+
+	ffmpeg -version
+
 ## settings.json
 Il file delle impostazioni funziona mettendo tra le virgolette una "T", le virgolette devono rimanere anche nel caso non si voglia attiva la determinata variabile, si può quindi lasciare vuota o mettere quealsiasi altro carattere es: "F"
 Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare problemi nell'esecuzione
@@ -58,29 +75,13 @@ Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare prob
 								(questa cartella sarà nascosta se generata automaticamente)
 
 								(le cartelle temporanee sono state create per evitare bug ad un eventuale secondo avvio del programma)
-
-		"before": " ",					#sostituzione nel nome temporanea
-		"after": "y_-s_-z"				#rinominazione temporanea (modificare se si presenta questa dicitura nel nome del video)
 	}
 
-## Installation
-Per l'installazione si procede con il comando da terminale per youtube-dl: `pip install youtube-dl` oppure eseguendo il file [setup.bat](\setup.bat).
+## Problems
 
-Successivamente per la libreria FFmpeg, dopo aver scaricato la libreria da questo [link](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z), oppure eseguendo il file [ffmpeg_dl.bat](\ffmpeg_dl.bat), estraetela e rinominatela ffmpeg. Ora bisogna (come amministratori) andare su `Pannello di controllo>Sistema e sicurezza>Sistema` > `Impostazioni di sistema avanzate` > `Variabili d'ambiente`, premere su `Path` e fare `Modifica...`. Ora fate `Nuovo` ed incollate la path della cartella ffmpeg fino alla cartella bin (la cartella può essere messa dove si vuole, l'importante è che se si vuole spostare la cartella si modifichi anche la variabile d'ambiente)
+Se si riscontrano problemi con la libreria youtube-dl probabilmente bisogna aggiornarla con il comando: `pip install --upgrade youtube_dl` oppure eseguendo il file [setup.bat](\setup.bat).
 
-Il risulatato dovrà essere simile a questo:
-
-	C:\*\ffmpeg\bin
-
-Per verificare l'installazione eseguire da linea comando:
-
-	ffmpeg -version
-
- SE SI RISCONTRANO PROBLEMI IN FUTURO PROBABILMENTE BISOGNA AGGIORNARE LA LIBRERIA CON IL COMANDO DA TERMINALE: `pip install --upgrade youtube_dl` oppure eseguendo il file [setup.bat](\setup.bat).
-
-## Library
-
-ffmpeg, youtube-dl
+Se il problema deriva dalla libreria FFmpeg può esserci qualche carattere che crea errori, dunque aggiungere all'interno del programma il carattere che deve essere sostituito
 
 ## Author
 
