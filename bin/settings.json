@@ -18,7 +18,5 @@
 
 	
 	"e_dir_video": ".\\e_video",
-	"e_dir_audio": ".\\e_audio",
-	"before": " ",
-	"after": "y_-s_-z"
+	"e_dir_audio": ".\\e_audio"
 }

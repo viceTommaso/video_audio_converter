@@ -14,7 +14,7 @@ boold = False
 
 def ren(t_directory, t_before, t_after):
     """
-    rename file whit specificated argoments
+    rename file that are in t_directory with specificated argoments
     :param t_directory: directory
     :param t_before: to replace
     :param t_after: replace by
@@ -31,6 +31,28 @@ def ren(t_directory, t_before, t_after):
                     else:
                         st += s
                 os.rename(os.path.join(root, i), os.path.join(root, f"{st.replace(t_before, t_after)}.{v_file[-1]}"))
+    return 0
+
+
+def error_char(t_directory, action):
+    """
+    rename file that cause error with other words
+    :param t_directory: directory
+    :param action: "ren" for rename, "undo" for undo
+    :return: 0
+    """
+    char, repl = [" ", "&"], ["y_-s_-z", "EspEc"]      #caratteri che danno errore con quello che li sostituisce
+
+    if action == "ren":
+        count = 0
+        for i in range(0, len(char)):
+            ren(t_directory, char[count], repl[count])
+            count += 1
+    if action == "undo":
+        count = 0
+        for i in range(0, len(char)):
+            ren(t_directory, repl[count], char[count])
+            count += 1
     return 0
 
 
@@ -70,18 +92,16 @@ def video(p_0, p_2, p_3, p_10, i_type):
     return 0
 
 
-def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11, p_12, p_13):
+def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11):
     """
     conversions operations
     :param p_1:audio_quality
     :param p_5:convert_video
     :param p_6:convert_existing_video
-    :param p_7:convert_existing_video
+    :param p_7:delete_converted_video
     :param p_8:dir_video
     :param p_10:e_dir_video
     :param p_11:e_dir_audio
-    :param p_12:before
-    :param p_13:after
     :return: 0
     """
     if p_6 == "T":
@@ -90,8 +110,7 @@ def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11, p_12, p_13):
                 shutil.move(os.path.join(root, i), p_10)
 
     if p_5 == "T":
-        ren(p_10, p_12, p_13)
-        ren(p_10, "&", "EspEc")                         #la & da errore nella conversione
+        error_char(p_10, "ren")
         for root, dirs, files in os.walk(p_10):
             for i in files:
                 v_i = i.split(".")
@@ -108,10 +127,8 @@ def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11, p_12, p_13):
                     os.remove(os.path.join(root, i))
 
         if p_7 != "T":
-            ren(p_10, p_13, p_12)
-            ren(p_10, "EspEc", "&")                     #ripristino &
-        ren(p_11, p_13, p_12)
-        ren(p_11, "EspEc", "&")
+            error_char(p_10, "undo")
+        error_char(p_11, "undo")
     return 0
 
 
@@ -183,9 +200,7 @@ def main():
             settings["dir_video"],
             settings["dir_audio"],
             settings["e_dir_video"],
-            settings["e_dir_audio"],
-            settings["before"],
-            settings["after"])
+            settings["e_dir_audio"])
 
     init_files(parm[0], "INPUT")
     init_directory(parm[8],"", "VIDEO")
@@ -205,7 +220,7 @@ def main():
             with open(parm[0], "w", encoding="utf-8") as f_link:
                 pass
 
-    convert(parm[1], parm[5], parm[6], parm[7], parm[8], parm[10], parm[11], parm[12], parm[13])
+    convert(parm[1], parm[5], parm[6], parm[7], parm[8], parm[10], parm[11])
 
     move_files(parm[10], parm[8])
     move_files(parm[11], parm[9])
