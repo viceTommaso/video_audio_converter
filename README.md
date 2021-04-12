@@ -1,25 +1,9 @@
 ﻿# video_converter
 
-## Program
-
-Il programma utilizza le librerie [`youtube-dl`](https://github.com/ytdl-org/youtube-dl) e [`FFmpeg`](https://github.com/FFmpeg) che possono essere usate separatamente oppure insieme.
-
-* youtube-dl permette di scaricare i video dai siti presenti nella lista in mp4: [Supported Sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html) 
-* FFmpeg permette di convertire i video in formato mp3
-
-A seconda di quello che si vuole fare bisogna modificare il file [`settings.json`](.\bin\settings.json)
-
-Se si vuole scaricare uno o più video contemporaneamente, basta mettere i link nell'apposito file ([`link.txt`](.\bin\link.txt) o quello che scieglierete) inserendo i link uno sotto l'altro
-
-Altrimenti si può eseguire il programma da prompt dei comandi come ultimo parametro il link del video (eseguendolo in questo modo il file con i link non verrà resettato anche se la variabile è attiva)
-
-Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene ignorato
-
-***SI CONSIGLIA DI ESEGUIRE IL PROGRAMMA A VUOTO PRIMA DELL'USO***
 
 ## Prerequisites
 
-windows, python3
+windows, python 3
 
 ## Library
 
@@ -37,6 +21,23 @@ Il risulatato dovrà essere simile a questo:
 Per verificare l'installazione eseguire da linea comando:
 
 	ffmpeg -version
+
+# Program
+
+Il programma utilizza le librerie [`youtube-dl`](https://github.com/ytdl-org/youtube-dl) e [`FFmpeg`](https://github.com/FFmpeg) che possono essere usate separatamente oppure insieme.
+
+* youtube-dl permette di scaricare i video dai siti presenti nella lista in mp4: [Supported Sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html) 
+* FFmpeg permette di convertire i video in formato mp3
+
+A seconda di quello che si vuole fare bisogna modificare il file [`settings.json`](.\bin\settings.json)
+
+Se si vuole scaricare uno o più video contemporaneamente, basta mettere i link nell'apposito file ([`link.txt`](.\bin\link.txt) o quello che scieglierete) inserendo i link uno sotto l'altro
+
+Altrimenti si può eseguire il programma da prompt dei comandi come ultimo parametro il link del video (eseguendolo in questo modo il file con i link non verrà resettato anche se la variabile è attiva)
+
+Se un file è gia stato scaricato/convertito oppure ha lo stesso nome viene ignorato
+
+***SI CONSIGLIA DI ESEGUIRE IL PROGRAMMA A VUOTO PRIMA DELL'USO***
 
 ## settings.json
 Il file delle impostazioni funziona mettendo tra le virgolette una "T", le virgolette devono rimanere anche nel caso non si voglia attiva la determinata variabile, si può quindi lasciare vuota o mettere quealsiasi altro carattere es: "F"

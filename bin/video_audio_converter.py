@@ -105,7 +105,6 @@ def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11):
     :return: 0
     """
     if p_6 == "T":
-        
         for root, dirs, files in os.walk(p_8):
             for i in files:
                 try:
