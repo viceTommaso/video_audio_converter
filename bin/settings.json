@@ -9,7 +9,7 @@
 
 	"reset_file_input": "T",
 
-	"convert_video": "",
+	"convert_video": "T",
 	"convert_existing_video": "T",
 	"delete_converted_video": "T",
 
