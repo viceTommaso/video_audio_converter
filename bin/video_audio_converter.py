@@ -105,9 +105,14 @@ def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11):
     :return: 0
     """
     if p_6 == "T":
+        
         for root, dirs, files in os.walk(p_8):
             for i in files:
-                shutil.move(os.path.join(root, i), p_10)
+                try:
+                    shutil.move(os.path.join(root, i), p_10)
+                except shutil.Error:
+                    print("\n\n\nFile con lo stesso nome già presente: file non elaborato\n(file preesistente)\n\n\n")
+                    pass
 
     if p_5 == "T":
         error_char(p_10, "ren")
@@ -208,7 +213,6 @@ def main():
     init_directory(parm[10],"h", "HIDE VIDEO")
     init_directory(parm[11],"h", "HIDE AUDIO")
 
-
     move_files(parm[10], parm[8])
     move_files(parm[11], parm[9])
 
@@ -227,7 +231,6 @@ def main():
 
     if boold:
         print("end")
-        
     return 0
 
 
