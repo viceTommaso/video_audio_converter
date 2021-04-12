@@ -9,9 +9,9 @@
 
 	"reset_file_input": "T",
 
-	"convert_video": "T",
+	"convert_video": "",
 	"convert_existing_video": "T",
-	"delete_converted_video": "",
+	"delete_converted_video": "T",
 
 	"dir_video": ".\\video",
 	"dir_audio": ".\\audio",
