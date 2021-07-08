@@ -3,15 +3,15 @@
 
 	"audio_quality": "192k",
 
-	"download_video": "T",
+	"download_video": "",
 
 	"remove_str_file": "T",
 
-	"reset_file_input": "T",
+	"reset_file_input": "",
 
 	"convert_video": "T",
 	"convert_existing_video": "T",
-	"delete_converted_video": "T",
+	"delete_converted_video": "",
 
 	"dir_video": ".\\video",
 	"dir_audio": ".\\audio",

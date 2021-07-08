@@ -41,7 +41,7 @@ def error_char(t_directory, action):
     :param action: "ren" for rename, "undo" for undo
     :return: 0
     """
-    char, repl = [" ", "&"], ["y_-s_-z", "EspEc"]      #caratteri che danno errore con quello che li sostituisce
+    char, repl = [" ", "&"], ["#$#", "EspEc"]      #caratteri che danno errore con quello che li sostituisce
 
     if action == "ren":
         count = 0
