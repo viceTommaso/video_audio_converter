@@ -23,8 +23,7 @@ Per verificare l'installazione eseguire da linea comando:
 	ffmpeg -version
 
 # Program
-
-Il programma utilizza le librerie [`youtube-dl`](https://github.com/ytdl-org/youtube-dl) e [`FFmpeg`](https://github.com/FFmpeg) che possono essere usate separatamente oppure insieme.
+Il programma può essere usato per scaricare i video da Youtube e/o convertire i video in audio, più nello specifico: utilizza le librerie [`youtube-dl`](https://github.com/ytdl-org/youtube-dl) e [`FFmpeg`](https://github.com/FFmpeg) che possono essere usate separatamente oppure insieme.
 
 * youtube-dl permette di scaricare i video dai siti presenti nella lista in mp4: [Supported Sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html) 
 * FFmpeg permette di convertire i video in formato mp3
