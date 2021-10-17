@@ -56,12 +56,13 @@ def error_char(t_directory, action):
     return 0
 
 
-def video(p_0, p_2, p_3, p_10, i_type):
+def video(p_0, p_2, p_3, p_7, p_10, i_type):
     """
     downloading operations
     :param p_0:input
     :param p_2:download_video
     :param p_3:remove_str_file
+    :param p_7:delete_converted_video
     :param p_10:e_dir_video
     :param i_type:type of input, string("s")/file("f")
     :return: 0
@@ -70,9 +71,15 @@ def video(p_0, p_2, p_3, p_10, i_type):
         if i_type == "f":
             with open(p_0, "r", encoding="utf-8") as f_link:
                 for i in f_link:
-                    os.system(f"""cd {p_10} && youtube-dl -f best {i}""")
+                    if p_7 == "T":
+                        os.system(f"""cd {p_10} && youtube-dl {i}""")
+                    else:
+                        os.system(f"""cd {p_10} && youtube-dl -f best {i}""")
         elif i_type == "s":
-            os.system(f"""cd {p_10} && youtube-dl -f best {p_0}""")
+            if p_7 == "T":
+                os.system(f"""cd {p_10} && youtube-dl {p_0}""")
+            else:
+                os.system(f"""cd {p_10} && youtube-dl -f best {p_0}""")
         else:
             print("inserire un tipo di input valido (s/f)")
             pass
@@ -215,9 +222,9 @@ def main():
     move_files(parm[11], parm[9])
 
     if len(sys.argv) >= 2:
-        video(sys.argv[-1], parm[2], parm[3], parm[10], "s")
+        video(sys.argv[-1], parm[2], parm[3], parm[7], parm[10], "s")
     else:
-        video(parm[0], parm[2], parm[3], parm[10], "f")
+        video(parm[0], parm[2], parm[3], parm[7], parm[10], "f")
         if parm[4] == "T":
             with open(parm[0], "w", encoding="utf-8") as f_link:
                 pass
