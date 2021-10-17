@@ -1,4 +1,4 @@
-﻿# video_converter
+﻿# video_audio_converter
 
 
 ## Prerequisites
@@ -49,7 +49,7 @@ Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare prob
 
 		"audio_quality": "192k",			#la qualità audio del video scaricato
 
-		"download_video": "T",				#attiva la libreria "youtube-dl" e scarica i video presenti nel file di input
+		"download_video": "T",				#attiva la libreria "youtube-dl" e scarica i video presenti nel file di input (risoluzione massima 720p)
 								(può rimanere attiva senza problemi se il file dei link è vuoto)
 
 		"remove_str_file": "T",				#se disattivato il nome dei file avrà alla fine del nome parte del link

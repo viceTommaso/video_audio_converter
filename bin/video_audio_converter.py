@@ -124,8 +124,7 @@ def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11):
                         st += f"{s}."
                     else:
                         st += s
-                os.system(
-                    f"""ffmpeg -i .\\{p_10}\\{i} -acodec libmp3lame -b:a {p_1} -vn .\\{p_11}\\{st}.mp3""")
+                os.system(f"""ffmpeg -i .\\{p_10}\\{i} -acodec libmp3lame -b:a {p_1} -vn .\\{p_11}\\{st}.mp3""")
 
                 if p_7 == "T":
                     os.remove(os.path.join(root, i))

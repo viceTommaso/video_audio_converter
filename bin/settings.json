@@ -11,7 +11,7 @@
 
 	"convert_video": "T",
 	"convert_existing_video": "T",
-	"delete_converted_video": "T",
+	"delete_converted_video": "",
 
 	"dir_video": ".\\video",
 	"dir_audio": ".\\audio",
