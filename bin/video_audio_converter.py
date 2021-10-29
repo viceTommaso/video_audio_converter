@@ -95,7 +95,10 @@ def video(p_0, p_2, p_3, p_7, p_10, i_type):
                             st += f"""{s}."""
                         else:
                             st += f"""{s}"""
-                    os.rename(os.path.join(root, i), os.path.join(root, f"""{st.replace(st[-12:], "")}.{v_file[-1]}"""))
+                    try:
+                        os.rename(os.path.join(root, i), os.path.join(root, f"""{st.replace(st[-12:], "")}.{v_file[-1]}"""))
+                    except FileExistsError:
+                        os.rename(os.path.join(root, i), os.path.join(root, f"""{st.replace(st[-12:], " - COPY")}.{v_file[-1]}"""))
     return 0
 
 

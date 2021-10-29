@@ -2,11 +2,9 @@
 
 
 ## Prerequisites
-
 windows, python 3
 
 ## Library
-
 ffmpeg, youtube-dl
 
 ## Installation
@@ -53,6 +51,7 @@ Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare prob
 								(può rimanere attiva senza problemi se il file dei link è vuoto)
 
 		"remove_str_file": "T",				#se disattivato il nome dei file avrà alla fine del nome parte del link
+								Se eseguendo questa operazione i file risultano con lo stesso nome, al secondo file verra aggiunto " - COPY"
 								(funziona indipendentemente dalla variabile precedente)
 								(consigliabile tenerla sempre attiva in assenza di relativi bug)
 
@@ -80,11 +79,9 @@ Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare prob
 	}
 
 ## Problems
-
 Se si riscontrano problemi con la libreria youtube-dl probabilmente bisogna aggiornarla con il comando: `pip install --upgrade youtube_dl` oppure eseguendo il file [setup.bat](\setup.bat).
 
 Se il problema deriva dalla libreria FFmpeg può esserci qualche carattere che crea errori, dunque aggiungere all'interno del programma il carattere che deve essere sostituito
 
 ## Author
-
 Vicentini Tommaso
