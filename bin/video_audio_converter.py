@@ -59,12 +59,12 @@ def error_char(t_directory, action):
 def video(p_0, p_2, p_3, p_7, p_10, i_type):
     """
     downloading operations
-    :param p_0:input
-    :param p_2:download_video
-    :param p_3:remove_str_file
-    :param p_7:delete_converted_video
-    :param p_10:e_dir_video
-    :param i_type:type of input, string("s")/file("f")
+    :param p_0: input
+    :param p_2: download_video
+    :param p_3: remove_str_file
+    :param p_7: delete_converted_video
+    :param p_10: e_dir_video
+    :param i_type: type of input, string("s")/file("f")
     :return: 0
     """
     if p_2 == "T":
@@ -75,6 +75,7 @@ def video(p_0, p_2, p_3, p_7, p_10, i_type):
                         os.system(f"""cd {p_10} && youtube-dl {i}""")
                     else:
                         os.system(f"""cd {p_10} && youtube-dl -f best {i}""")
+                f_link.close()
         elif i_type == "s":
             if p_7 == "T":
                 os.system(f"""cd {p_10} && youtube-dl {p_0}""")
@@ -105,13 +106,13 @@ def video(p_0, p_2, p_3, p_7, p_10, i_type):
 def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11):
     """
     conversions operations
-    :param p_1:audio_quality
-    :param p_5:convert_video
-    :param p_6:convert_existing_video
-    :param p_7:delete_converted_video
-    :param p_8:dir_video
-    :param p_10:e_dir_video
-    :param p_11:e_dir_audio
+    :param p_1: audio_quality
+    :param p_5: convert_video
+    :param p_6: convert_existing_video
+    :param p_7: delete_converted_video
+    :param p_8: dir_video
+    :param p_10: e_dir_video
+    :param p_11: e_dir_audio
     :return: 0
     """
     if p_6 == "T":
@@ -148,8 +149,8 @@ def convert(p_1, p_5, p_6, p_7, p_8, p_10, p_11):
 def move_files(original_path, destination_path):
     """
     end operations
-    :param original_path:where are files
-    :param destination_path:where files goes
+    :param original_path: where are files
+    :param destination_path: where files goes
     :return: 0
     """
     for root, dirs, files in os.walk(original_path):
@@ -162,13 +163,13 @@ def move_files(original_path, destination_path):
 def init_files(file_ck, file_name):
     """
     check if there are any files needed to boot
-    :param file_ck:file to check if exist
-    :param file_name:the name to print when crated
+    :param file_ck: file to check if exist
+    :param file_name: the name to print when crated
     :return: 0
     """
     if str(os.path.exists(file_ck)) == "False":
         with open(file_ck, "a", encoding="utf-8") as f_link:
-            pass
+            f_link.close()
         print(f"""{file_name} FILE doesn't exist, just created""")
     return 0
 
@@ -176,9 +177,9 @@ def init_files(file_ck, file_name):
 def init_directory(dir_ck, dir_vsby, dir_name):
     """
     check if there are any dirs needed to boot
-    :param dir_ck:directory to check if exist
-    :param dir_vsby:if directory is visible or not (any str/h)
-    :param dir_name:the name to print when crated
+    :param dir_ck: directory to check if exist
+    :param dir_vsby: if directory is visible or not (any str/h)
+    :param dir_name: the name to print when crated
     :return: 0
     """
     if str(os.path.exists(dir_ck)) == "False":
@@ -201,6 +202,7 @@ def main():
 
     with open("settings.json", "r", encoding="utf-8") as file_json:
         settings = json.loads(file_json.read())
+        file_json.close()
 
     parm = (settings["file_input_link"],
             settings["audio_quality"],
@@ -230,7 +232,7 @@ def main():
         video(parm[0], parm[2], parm[3], parm[7], parm[10], "f")
         if parm[4] == "T":
             with open(parm[0], "w", encoding="utf-8") as f_link:
-                pass
+                f_link.close()
 
     convert(parm[1], parm[5], parm[6], parm[7], parm[8], parm[10], parm[11])
 
