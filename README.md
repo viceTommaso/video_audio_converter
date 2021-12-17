@@ -5,7 +5,7 @@
 windows, python 3
 
 ## Library
-ffmpeg, youtube-dl
+[FFmpeg](https://github.com/FFmpeg/FFmpeg), [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 
 ## Installation
 Per l'installazione si procede con il comando da terminale per youtube-dl: `pip install youtube-dl` oppure eseguendo il file [setup.bat](\setup.bat).
