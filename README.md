@@ -8,9 +8,9 @@ windows, [python 3](https://www.python.org/downloads/)
 [FFmpeg](https://github.com/FFmpeg/FFmpeg), [youtube-dl](https://github.com/ytdl-org/youtube-dl)
 
 ## Installation
-Per l'installazione si procede con il comando da terminale per youtube-dl: `pip install youtube-dl` oppure eseguendo il file [setup.bat](\setup.bat).
+Per l'installazione si procede con il comando da terminale per youtube-dl: `pip install youtube-dl` oppure eseguendo il file [setup.bat](\etc\setup.bat).
 
-Successivamente per la libreria FFmpeg, dopo aver scaricato la libreria da questo [link](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z), oppure eseguendo il file [ffmpeg_dl.bat](\ffmpeg_dl.bat), estraetela e rinominatela ffmpeg. Ora bisogna (come amministratori) andare su `Pannello di controllo>Sistema e sicurezza>Sistema` > `Impostazioni di sistema avanzate` > `Variabili d'ambiente`, premere su `Path` e fare `Modifica...`. Ora fate `Nuovo` ed incollate la path della cartella ffmpeg fino alla cartella bin (la cartella può essere messa dove si vuole, l'importante è che se si vuole spostare la cartella si modifichi anche la variabile d'ambiente)
+Successivamente per la libreria FFmpeg, dopo aver scaricato la libreria da questo [link](https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z), oppure eseguendo il file [ffmpeg_dl.bat](\etc\ffmpeg_dl.bat), estraetela e rinominatela ffmpeg. Ora bisogna (come amministratori) andare su `Pannello di controllo>Sistema e sicurezza>Sistema` > `Impostazioni di sistema avanzate` > `Variabili d'ambiente`, premere su `Path` e fare `Modifica...`. Ora fate `Nuovo` ed incollate la path della cartella ffmpeg fino alla cartella bin (la cartella può essere messa dove si vuole, l'importante è che se si vuole spostare la cartella si modifichi anche la variabile d'ambiente)
 
 Il risulatato dovrà essere simile a questo:
 
@@ -79,7 +79,7 @@ Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare prob
 	}
 
 ## Problems
-Se si riscontrano problemi con la libreria youtube-dl probabilmente bisogna aggiornarla con il comando: `pip install --upgrade youtube_dl` oppure eseguendo il file [setup.bat](\setup.bat).
+Se si riscontrano problemi con la libreria youtube-dl probabilmente bisogna aggiornarla con il comando: `pip install --upgrade youtube_dl` oppure eseguendo il file [setup.bat](\etc\setup.bat).
 
 Se il problema deriva dalla libreria FFmpeg può esserci qualche carattere che crea errori, dunque aggiungere all'interno del programma il carattere che deve essere sostituito
 

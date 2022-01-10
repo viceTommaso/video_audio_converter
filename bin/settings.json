@@ -7,10 +7,10 @@
 
 	"remove_str_file": "T",
 
-	"reset_file_input": "T",
+	"reset_file_input": "",
 
 	"convert_video": "T",
-	"convert_existing_video": "T",
+	"convert_existing_video": "",
 	"delete_converted_video": "",
 
 	"dir_video": ".\\video",
