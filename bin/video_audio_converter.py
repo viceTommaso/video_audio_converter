@@ -78,7 +78,7 @@ def video(p_0, p_2, p_3, p_7, p_10, i_type):
                 f_link.close()
         elif i_type == "s":
             if p_7 == "T":
-                os.system(f"""cd {p_10} && youtube-dl {p_0}""")
+                os.system(f"""cd {p_10} && youtube-dl -f bestaudio {p_0}""")
             else:
                 os.system(f"""cd {p_10} && youtube-dl -f best {p_0}""")
         else:
