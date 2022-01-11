@@ -72,7 +72,7 @@ def video(p_0, p_2, p_3, p_7, p_10, i_type):
             with open(p_0, "r", encoding="utf-8") as f_link:
                 for i in f_link:
                     if p_7 == "T":
-                        os.system(f"""cd {p_10} && youtube-dl {i}""")
+                        os.system(f"""cd {p_10} && youtube-dl -f bestaudio {i}""")
                     else:
                         os.system(f"""cd {p_10} && youtube-dl -f best {i}""")
                 f_link.close()

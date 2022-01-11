@@ -62,7 +62,7 @@ Nei percorsi dei file si raccomanda il doppio backslash in modo da non dare prob
 		"convert_existing_video": "",			#converte (anche) i video presenti nella cartella destinata ai video
 								(funziona dipendentemente dalla variabile precedente)
 								(può essere usata per convertire un file video in mp3)
-		"delete_converted_video": "",			#elimina i video convertiti
+		"delete_converted_video": "",			#elimina i video convertiti. Se attiva questa variabile il download sarà più rapido perche invece di scaricare video e audio a massima qualità, sarà solo l'audio ad essere migliore
 								(funziona dipendentemente dalla variabile "convert_video")
 
 		"dir_video": ".\\video",			#cartella predefinita per il download e processo di conversione dei video
